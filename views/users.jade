@@ -1,0 +1,11 @@
+extends layout
+block mainContent
+  h1= title
+    h2 List of All Users
+      ul
+        each user in userList
+            .container
+                img(src=user.avatar)
+                p #{user.first_name} #{user.last_name}
+                p #{user.email}
+                

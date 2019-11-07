@@ -1,7 +1,19 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
+    meta(charset='utf-8')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='shortcut icon', href='/images/design/favicon.ico', type='image/x-icon')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title=title
+    block pageScript
   body
-    block content
+    div.topBar
+    .menuNav
+      a.active(href='/') HOME
+      a(href='/users') User List
+      a(href='/users/3') User 3
+    div.mainBlock
+      block mainContent
+    .footerWrapper
+      p © 2018 ShwetaPatel. All rights are reserved.
