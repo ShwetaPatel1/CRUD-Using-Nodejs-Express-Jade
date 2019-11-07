@@ -1,10 +1,16 @@
 extends layout
 block pageScript
   head
-    script(src='/javascripts/deleteUser.js')
+    script(src='/javascripts/userScript_clientside.js')
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
 block mainContent
+  if updateUser
+    div.container
+      p#id id : #{updateUser.id}
+      p Name : #{updateUser.first_name} #{updateUser.last_name}
+      p Email : #{updateUser.email}
+      img(src=updateUser.avatar)
   div.imgBgSkills
     #form_container(class="userForm")
       form(action='', name="userForm")
@@ -23,5 +29,7 @@ block mainContent
             input(type='text', name='job', placeholder='job', required='')
         .row
           .col-25
-            button(type='button', name='submit', onClick="addUser()" ) Add User
+            - var handleClick = (!updateUser ? 'addUser()' : 'updateUser()')
+            - var buttonName = (!updateUser ? 'Create User' : 'Update User')
+            button(type='button', name='submit', onClick=handleClick ) #{buttonName}
             button(type='reset', name='reset') Reset

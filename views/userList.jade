@@ -1,0 +1,12 @@
+extends layout
+block mainContent
+  h1= title
+    h2 List of All Users
+      ul
+        each user in userList
+            .container
+                img(src=user.avatar)
+                p Name : #{user.first_name} #{user.last_name}
+                p email : #{user.email}
+                a(href='/updateUser/' + user.id) update
+                
