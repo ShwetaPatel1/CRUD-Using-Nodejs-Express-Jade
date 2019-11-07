@@ -1,0 +1,27 @@
+extends layout
+block pageScript
+  head
+    script(src='/javascripts/deleteUser.js')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+block mainContent
+  div.imgBgSkills
+    #form_container(class="userForm")
+      form(action='', name="userForm")
+        h1= title
+        .row
+          .col-25  First Name :
+          .col-75
+            input(type='text', name='firstName', placeholder='first name', required='')
+        .row
+          .col-25 Last Name :
+          .col-75
+            input(type='text', name='lastName', placeholder='Last name', required='')
+        .row
+          .col-25 Job :
+          .col-75
+            input(type='text', name='job', placeholder='job', required='')
+        .row
+          .col-25
+            button(type='button', name='submit', onClick="addUser()" ) Add User
+            button(type='reset', name='reset') Reset
