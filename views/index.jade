@@ -1,5 +1,12 @@
 extends layout
 
-block content
+block mainContent
   h1= title
   h2 Welcome to #{title}
+  ul
+    li This is simple web application developed using Node.js + Express + Jade template
+    li This applications uses external api https://reqres.in/ for showing simple CRUD operations
+    li Click USER LIST menu for viewing list of users.
+    li Each user can be updated or deleted using  update and delete options given on User List page.
+    li Click on ADD USER menu in order to create new user.
+  

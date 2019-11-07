@@ -21,19 +21,19 @@ function postAjax(url, data, success) {
 function addUser() {
     var firstName = document.forms["userForm"]["firstName"].value.trim();
     if (firstName == "") {
-        alert("Enter proper First Name");
+        alert("Enter valid First Name");
         return false;
     }
 
     var lastName = document.forms["userForm"]["lastName"].value.trim();
     if (lastName == "") {
-        alert("Enter proper Last Name");
+        alert("Enter valid Last Name");
         return false;
     }
 
     var job = document.forms["userForm"]["job"].value.trim();
     if (job == "") {
-        alert("Enter proper Last Name");
+        alert("Enter valid Last Name");
         return false;
     }
 
@@ -48,19 +48,19 @@ function addUser() {
 function updateUser() {
     var firstName = document.forms["userForm"]["firstName"].value.trim();
     if (firstName == "") {
-        alert("Enter proper First Name");
+        alert("Enter valid First Name");
         return false;
     }
 
     var lastName = document.forms["userForm"]["lastName"].value.trim();
     if (lastName == "") {
-        alert("Enter proper Last Name");
+        alert("Enter valid Last Name");
         return false;
     }
 
     var job = document.forms["userForm"]["job"].value.trim();
     if (job == "") {
-        alert("Enter proper Last Name");
+        alert("Enter valid job");
         return false;
     }
 
@@ -69,5 +69,11 @@ function updateUser() {
 
     postAjax('/updateUser/' + id, params, function (message) {
         alert("User Updated : " + message);
+    });
+}
+
+function deleteUser(id) {
+    postAjax('/users/' + id, function (message) {
+        alert("User deleted : " + message);
     });
 }

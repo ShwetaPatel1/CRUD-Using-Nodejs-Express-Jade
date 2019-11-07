@@ -1,18 +1,35 @@
 var express = require('express');
+var fetch = require('node-fetch');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/* GET all users listing. */
+router.get('/', function (req, res, next) {
+  fetch('https://reqres.in/api/users')
+    .then(response => response.json())
+    .then(json => {
+      res.render('userList', {
+        title: 'Users',
+        userList: json.data
+      });
+    });
 });
 
-router.get('/:id', function(req, res, next) {
-  res.send( id);
+
+/* DELETE user info with given id. */
+router.get('/:id', function (req, res, next) {
+  fetch('https://reqres.in/api/users/' + req.params.id, {
+      method: 'delete'
+    })
+    .then(response => {
+      console.log(response);
+      res.render('deletedUser', {
+        message: 'User deleted.',
+        response
+      });
+    });
 });
 
-router.get('/delete/:id', function(req, res, next) {
-  res.send('Delete user with Id : ' + id);
-});
+
 
 
 
